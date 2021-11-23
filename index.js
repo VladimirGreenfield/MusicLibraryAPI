@@ -32,6 +32,12 @@ app.put('/api/songs/:id', (req, res) => {
     return res.send(updatedSong);
 });
 
+app.delete('./api/songs/:id', (req,res) => {
+    const id = req.params.id;
+    const updateDataSet = repoContext.songs.deleteSong(id);
+    return res.send(updateDataSet);
+});
+
 
 app.listen(3000, function () {
     console.log("Server started. Listening on port 3000.");
